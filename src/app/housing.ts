@@ -9,10 +9,7 @@ import {HousingLocationInfo} from './housinglocation';
 
 export class HousingService {
    
-  
   url = 'http://localhost:3000/locations';
-
-  
 
   async getAllHousingLocations(): Promise<HousingLocationInfo[]> {
     const data = await fetch(this.url);

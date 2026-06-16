@@ -5,7 +5,7 @@ import {RouterLink, RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Home,RouterOutlet,RouterLink],
+  imports: [RouterOutlet],
   template: `
   <main>
     <header class="brand-name">
