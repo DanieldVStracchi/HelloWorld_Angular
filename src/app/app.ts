@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { Home } from './home/home';
-import {RouterLink, RouterOutlet} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router'; //router permite crear enlaces entre páginas sin recargar el navegador (SPA)
 
 
 @Component({

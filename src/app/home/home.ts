@@ -6,19 +6,7 @@ import {HousingService} from '../housing';
 @Component({
   selector: 'app-home',
   imports: [HousingLocation],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" #filter/>
-        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
-      </form>
-    </section>
-    <section class="results">
-      @for (housingLocation of filteredLocationList; track $index) {
-        <app-housing-location [housingLocation]="housingLocation" />
-      }
-    </section>
-  `,
+  templateUrl: './home.html',
   styles: ``,
   styleUrls: ['./home.css'],
   
@@ -33,6 +21,8 @@ export class Home {
     
    housingService: HousingService = inject(HousingService);
 
+  isAvailable: boolean = false;
+
   constructor() {
     this.housingService
       .getAllHousingLocations()
@@ -42,6 +32,11 @@ export class Home {
         this.changeDetectorRef.markForCheck();
       });
   }
+
+  onKeyUp(event: Event)
+  {
+    this.isAvailable= true;
+  };
   
   filterResults(text: string) {
     if (!text) {
@@ -51,6 +46,7 @@ export class Home {
     this.filteredLocationList = this.housingLocationList.filter((housingLocation) =>
       housingLocation?.city.toLowerCase().includes(text.toLowerCase()),
     );
+    this.isAvailable= false;
   }
 
   filteredLocationList: HousingLocationInfo[] = [];

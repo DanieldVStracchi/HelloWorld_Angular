@@ -5,7 +5,7 @@ import {HousingLocationInfo} from '../housinglocation';
 import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 
-@Component({
+@Component({    //Componente de la página con los detalles de la casa seleccionada por id
   selector: 'app-details',
   imports: [ReactiveFormsModule],
   template: `
