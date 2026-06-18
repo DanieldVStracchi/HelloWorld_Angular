@@ -1,0 +1,13 @@
+<section>
+      <form>
+        <input (keyup)="onKeyUp($event)" type="text" placeholder="Filter by city" #filter/>
+        
+        <button class="primary" [disabled]="!isAvailable" type="button" (click)="filterResults(filter.value)">Search</button>
+
+      </form>
+    </section>
+    <section class="results">
+      @for (housingLocation of filteredLocationList; track $index) {
+        <app-housing-location [housingLocation]="housingLocation" />
+      }
+    </section>
